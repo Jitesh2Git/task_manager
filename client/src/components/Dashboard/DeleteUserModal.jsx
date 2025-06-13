@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showToast } from "@/components/ui/Toaster";
 import { IconLoader2 } from "@tabler/icons-react";
 import { deleteUser } from "../../store/slices/userSlice";
-import { logout, signOut } from "../../store/slices/authSlice";
+import { signOut } from "../../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const DeleteUserModal = ({ user, onClose }) => {
@@ -17,11 +17,9 @@ const DeleteUserModal = ({ user, onClose }) => {
     if (deleteUser.fulfilled.match(resultAction)) {
       await dispatch(signOut());
 
-      dispatch(logout());
-
       showToast({
         type: "success",
-        message: "Task deleted successfully!",
+        message: "Account deleted successfully!",
       });
 
       navigate("/sign-up");
