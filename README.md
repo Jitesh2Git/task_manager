@@ -132,7 +132,7 @@ NODE_ENV=development
 PORT=8000
 MONGODB_URI=mongodb://localhost:27017/taskmanager
 # OR for MongoDB Atlas:
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/taskmanager
+MONGODB_URI=mongodb atlas connection string
 JWT_SECRET=your_super_secret_jwt_key_here
 JWT_EXPIRE=1d
 FRONTEND_URL=http://localhost:3000
