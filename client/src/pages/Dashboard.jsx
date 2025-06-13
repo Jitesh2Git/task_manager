@@ -21,14 +21,14 @@ const Dashboard = () => {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
-    dispatch(checkAuth()).then((res) => {
-      if (res.meta.requestStatus === "fulfilled") {
-        dispatch(fetchTasks()).finally(() => {
-          setIsInitialLoad(false);
-        });
-      }
-    });
+    dispatch(checkAuth());
   }, [dispatch, refresh]);
+
+  useEffect(() => {
+    dispatch(fetchTasks()).finally(() => {
+      setIsInitialLoad(false);
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     if (error && !hasShownToast.current) {
