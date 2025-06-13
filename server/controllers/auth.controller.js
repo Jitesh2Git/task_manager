@@ -102,8 +102,8 @@ export const signIn = async (req, res, next) => {
     res
       .cookie("taskmanager_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        secure: true,
+        sameSite: "none",
         maxAge: 1000 * 60 * 60 * 24,
       })
       .status(200)
@@ -121,8 +121,8 @@ export const signOut = async (req, res, next) => {
   try {
     res.clearCookie("taskmanager_token", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      secure: true,
+      sameSite: "none",
     });
 
     res.status(200).json({
