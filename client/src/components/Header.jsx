@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
-import { useDispatch, useSelector } from "react-redux";
-import { checkAuth } from "../store/slices/authSlice";
 import { Skeleton } from "@/components/ui/Skeleton";
 
-const Header = () => {
-  const dispatch = useDispatch();
+const Header = ({ checkingAuth, isLoggedIn }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const { checkingAuth, isLoggedIn } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    dispatch(checkAuth());
-  }, [dispatch]);
 
   return (
     <header

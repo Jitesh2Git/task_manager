@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ isLoggedIn }) => {
   return (
     <footer className="bg-custom-foreground border-t border-custom-border py-10 px-10 tracking-wide mt-10">
       <div className="max-w-screen-xl mx-auto">
@@ -21,16 +21,26 @@ const Footer = () => {
               </Link>
             </li>
 
-            <li>
-              <Link to="/sign-in" className="hover:text-custom-primary">
-                Sign In
-              </Link>
-            </li>
-            <li>
-              <Link to="/sign-up" className="hover:text-custom-primary">
-                Sign Up
-              </Link>
-            </li>
+            {isLoggedIn ? (
+              <li>
+                <Link to="/dashboard" className="hover:text-custom-primary">
+                  Dashboard
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link to="/sign-in" className="hover:text-custom-primary">
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/sign-up" className="hover:text-custom-primary">
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
