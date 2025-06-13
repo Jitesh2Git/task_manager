@@ -10,7 +10,7 @@ A full-stack task management application built with the MERN stack, featuring us
 ## 📹 Demo Video
 
 <video width="800" controls>
-  <source src="./demo/taskup-demo.mov" type="video/quicktime">
+  <source src="https://raw.githubusercontent.com/Jitesh2Git/task_manager/main/demo/taskup-demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -130,9 +130,9 @@ Create environment configuration in the server directory using one of these opti
 ```env
 NODE_ENV=development
 PORT=8000
-MONGODB_URI=mongodb://localhost:27017/taskmanager
+MONGO_URI=mongodb://localhost:27017/taskmanager
 # OR for MongoDB Atlas:
-MONGODB_URI=mongodb atlas connection string
+MONGO_URI=mongodb atlas connection string
 JWT_SECRET=your_super_secret_jwt_key_here
 JWT_EXPIRE=1d
 FRONTEND_URL=http://localhost:3000
