@@ -9,10 +9,7 @@ A full-stack task management application built with the MERN stack, featuring us
 
 ## 📹 Demo Video
 
-<video width="800" controls>
-  <source src="https://raw.githubusercontent.com/Jitesh2Git/task_manager/main/demo/taskup-demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/a9ae5381-d463-449d-b26b-cde5bbbaee9a
 
 ## 🚀 Features
 
