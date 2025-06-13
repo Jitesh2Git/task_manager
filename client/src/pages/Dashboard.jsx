@@ -18,11 +18,14 @@ const Dashboard = () => {
   const [refresh, setRefresh] = useState(false);
   const { loading, user, error } = useSelector((state) => state.auth);
   const { fetchingTasks, tasks } = useSelector((state) => state.tasks);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     dispatch(checkAuth()).then((res) => {
       if (res.meta.requestStatus === "fulfilled") {
-        dispatch(fetchTasks());
+        dispatch(fetchTasks()).finally(() => {
+          setIsInitialLoad(false);
+        });
       }
     });
   }, [dispatch, refresh]);
@@ -38,13 +41,14 @@ const Dashboard = () => {
     }
   }, [error, navigate]);
 
-  const filteredTasks = tasks?.filter((task) => {
-    const query = searchQuery.toLowerCase();
-    return (
-      task.title.toLowerCase().includes(query) ||
-      task.description.toLowerCase().includes(query)
-    );
-  });
+  const filteredTasks =
+    tasks?.filter((task) => {
+      const query = searchQuery.toLowerCase();
+      return (
+        task.title.toLowerCase().includes(query) ||
+        task.description.toLowerCase().includes(query)
+      );
+    }) || [];
 
   if (loading) return <Loading />;
 
@@ -82,7 +86,7 @@ const Dashboard = () => {
       </div>
 
       <TasksCard
-        fetchingTasks={fetchingTasks}
+        fetchingTasks={fetchingTasks || isInitialLoad}
         tasks={filteredTasks}
         originalTasks={tasks}
         userId={user?._id}

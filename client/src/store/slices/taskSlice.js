@@ -86,8 +86,8 @@ export const toggleTaskStatus = createAsyncThunk(
 );
 
 const initialState = {
-  tasks: [],
-  fetchingTasks: false,
+  tasks: null,
+  fetchingTasks: true,
   creatingTask: false,
   updatingTask: false,
   deletingTask: false,

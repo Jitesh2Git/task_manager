@@ -132,9 +132,12 @@ const EditTaskModal = ({ task, onCancel }) => {
               variant="outline"
               size="sm"
               className="text-sm"
-              disabled={updatingTask}
+              disabled={updatingTask || changingStatus}
               onClick={handleToggleStatus}
             >
+              {changingStatus && (
+                <IconLoader2 className="h-4 w-4 animate-spin" />
+              )}
               Mark as {status === "completed" ? "pending" : "completed"}
             </Button>
           </div>

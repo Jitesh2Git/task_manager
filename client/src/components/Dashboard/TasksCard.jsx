@@ -25,7 +25,7 @@ const TasksCard = ({ fetchingTasks, tasks, originalTasks, userId }) => {
   const [taskToDelete, setTaskToDelete] = useState(null);
   const [taskToEdit, setTaskToEdit] = useState(null);
 
-  if (fetchingTasks) {
+  if (fetchingTasks || tasks === null || tasks === undefined) {
     return (
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 md:px-8 pb-4 md:pb-8">
         {Array.from({ length: 16 }).map((_, i) => (
@@ -38,7 +38,7 @@ const TasksCard = ({ fetchingTasks, tasks, originalTasks, userId }) => {
     );
   }
 
-  if (originalTasks?.length === 0) {
+  if (!originalTasks || originalTasks.length === 0) {
     return (
       <div
         className="col-span-full flex flex-col items-center justify-center min-h-[60vh] 
