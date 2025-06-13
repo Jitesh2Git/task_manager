@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/components/ui/Textarea";
 import { IconCopyPlusFilled, IconLoader2, IconX } from "@tabler/icons-react";
 import { useDispatch, useSelector } from "react-redux";
 import { showToast } from "../ui/Toaster";
