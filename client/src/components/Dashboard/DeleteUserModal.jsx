@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const DeleteUserModal = ({ user, onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const deleting = useSelector((state) => state.tasks.deleting);
+  const deleting = useSelector((state) => state.users.deleting);
 
   const handleDelete = async () => {
     const resultAction = await dispatch(deleteUser(user._id));
