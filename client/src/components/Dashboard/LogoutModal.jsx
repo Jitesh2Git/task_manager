@@ -8,7 +8,7 @@ import { IconLoader2 } from "@tabler/icons-react";
 const LogoutModal = ({ onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const loading = useSelector((state) => state.tasks.loading);
+  const loading = useSelector((state) => state.auth.loading);
 
   const handleLogout = async () => {
     const resultAction = await dispatch(signOutThunk());

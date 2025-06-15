@@ -26,7 +26,7 @@ const DeleteUserModal = ({ user, onClose }) => {
     } else {
       showToast({
         type: "error",
-        message: resultAction.payload || "Failed to delete task",
+        message: resultAction.payload || "Failed to delete account",
       });
     }
   };
